@@ -45,7 +45,12 @@ const EditCategoryPage = ({ session, name, description, id }) => {
       const res = await result.json();
       console.log(res);
       push('/admin')
+      
+      if(!result.status === 201){
+        alert('Category Updated failed');}
+
     }catch(err){
+      alert('Category Updated failed');
       console.log('error occured: ', err);
     }
   };

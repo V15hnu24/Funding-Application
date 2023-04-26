@@ -18,7 +18,7 @@ export default function Header() {
             height="30"
             className="d-inline-block align-text-top"
           />
-          Donations
+          Funding Application
         </Link>
 
         <button
@@ -38,13 +38,12 @@ export default function Header() {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <Link
-              className="nav-link me-2 text-secondary"
-              aria-current="page"
-              href="/"
-            >
-              Donations
-            </Link>
+            
+              Contact us @&nbsp;
+              <a href="mailto:vishnu20480@iiitd.ac.in">vishnu20480@iiitd.ac.in</a>
+              &nbsp;or&nbsp;
+              <a href="mailto:rahul20534@iiitd.ac.in">rahul20534@iiitd.ac.in</a> 
+            
           </ul>
         </div>
       </div>

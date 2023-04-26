@@ -12,8 +12,11 @@ const handler = async (req, res) => {
         
     const { method } = req;
     console.log('req at api/admin/categogySpecific route');
-    if(method === "PUT"){
+    if(method === "PATCH"){
         try {
+
+            req.body = JSON.parse(req.body.form);
+            console.log('req.body = ', req.body);
             const updated_category = await category.findByIdAndUpdate(req.body.id, {$set: req.body}, {new: true});
             return res.status(200).json({ success: true, data: updated_category });
         } catch (error) {
