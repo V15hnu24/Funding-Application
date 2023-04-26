@@ -2,6 +2,10 @@ import React from "react";
 import { getSession } from "next-auth/react";
 import { server } from "@/config";
 
+import AdminLayout from "@/components/AdminLayout";
+
+import { useSession, signIn, signOut, SessionProvider } from "next-auth/react";
+
 const DonationItem = ({ index, donation }) => {
   return (
     <tr>
@@ -10,6 +14,7 @@ const DonationItem = ({ index, donation }) => {
       <td>  {donation.email} </td>
       <td> {donation.phone} </td>
       <td> {donation.amount} </td>
+      <td> {donation.category} </td>
       <td> {donation.razorpay_order_id} </td>
       <td> {donation.razorpay_payment_id} </td>
       <td> {donation.razorpay_signature} </td>
@@ -18,6 +23,10 @@ const DonationItem = ({ index, donation }) => {
 };
 
 const ViewDonations = ({ session, donations }) => {
+
+  // console.log("donations = ", donations);
+  // if(!donations) return <h1> No donations yet </h1>
+
   return (
     <div className="mx-3 table-responsive">
       <table className="table table-success table-striped table-hover">
@@ -28,6 +37,7 @@ const ViewDonations = ({ session, donations }) => {
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
             <th scope="col">Amount</th>
+            <th scope="col">Category </th>
             <th scope="col">Razorpay Order Id</th>
             <th scope="col">Razorpay Payment Id</th>
             <th scope="col">Razorpay Signature </th>
@@ -54,16 +64,35 @@ export async function getServerSideProps({ req }) {
     };
   }
 
-  const res = await fetch(`${server}/api/admin/donations`);
+  const res = await fetch(`${server}/api/admin/donations`, {
+    method: 'GET',
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: req.headers.cookie,
+    }
+  });
+  
   const { data: donations } = await res.json();
-  // console.log(donations);
-
+  // // console.log("donations = ", await res.json());
+  console.log("donations = ", donations);
   return {
     props: {
       session,
-      donations,
+      donations: donations? donations : null,
     },
   };
 }
 
 export default ViewDonations;
+
+ViewDonations.getLayout = function getLayout(page) {
+  return (
+    <>
+    <SessionProvider session={page.props.session}>
+      <AdminLayout>
+        {page}  
+      </AdminLayout>
+    </SessionProvider>
+    </>
+  );
+};

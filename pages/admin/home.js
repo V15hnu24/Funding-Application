@@ -4,6 +4,10 @@ import Link from "next/link";
 import { server } from "@/config";
 import { MdDeleteForever, MdEdit } from "react-icons/md";
 
+
+import { signIn, signOut, SessionProvider } from "next-auth/react";
+import AdminLayout from "@/components/AdminLayout";
+
 const CategoryItem = ({ id, category, setError }) => {
   const [deleting, setDeleting] = useState(false);
 
@@ -21,6 +25,16 @@ const CategoryItem = ({ id, category, setError }) => {
       console.log(res);
       setDeleting(false);
       setError(null);
+
+      if (res.success) {
+        alert("category deleted successfully");
+        // Refresh the page
+        window.location.reload();
+        console.log("category deleted successfully");
+      } else {
+        console.log("error occured");
+      }
+
     } catch (err) {
       setDeleting(false);
       setError(err);
@@ -42,7 +56,7 @@ const CategoryItem = ({ id, category, setError }) => {
             <div className="mr-auto">
               <Link
                 className="btn btn-danger mx-3"
-                href={`admin/editCategory/${category._id}`}
+                href={`editCategory/${category._id}`}
               >
                 <MdEdit />
               </Link>
@@ -119,3 +133,17 @@ export async function getServerSideProps({ req }) {
 }
 
 export default AdminPage;
+
+
+
+AdminPage.getLayout = function getLayout(page) {
+  return (
+    <>
+    <SessionProvider session={page.props.session}>
+      
+      <AdminLayout>{page}</AdminLayout>
+        
+    </SessionProvider>
+    </>
+  );
+};
