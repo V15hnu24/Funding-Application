@@ -32,8 +32,8 @@ export default function Footer() {
         </div>
       </section> */}
 
-      <div className="text-center p-3" style={{backgroundColor: "rgba(0, 0.8, 1, 0.2)"}}>
-        Developed by <Link href="https://github.com/V15hnu24">Vishnu Vardhan</Link> and <Link href="https://github.com/">Rahul</Link> @ IIIT-Delhi
+      <div className="text-center p-3" style={{backgroundColor: "rgba(1, 1.9, 3, 0.2)"}}>
+        Developed by <Link href="https://github.com/V15hnu24">Vishnu Vardhan</Link> and <Link href="https://github.com/rahul20534">Rahul</Link> @ IIIT-Delhi
         <hr></hr>
         {/* <br></br> */}
         © 2023 Copyright. All rights reserved.

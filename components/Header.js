@@ -8,9 +8,10 @@ export default function Header() {
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
   return (
-    <nav className="navbar navbar-expand-md">
+    <nav className="navbar navbar-expand-md " style={{background
+    :"rgba(0, 0.8, 1, 0.2)"}}>
       <div className="container-fluid ">
-        <Link className="navbar-brand ps-2" href="/">
+        <Link className="navbar-brand ps-2 " href="/">
           <Image
             src={IIITD_Logo}
             alt="Logo"
@@ -18,7 +19,10 @@ export default function Header() {
             height="30"
             className="d-inline-block align-text-top"
           />
-          Funding Application
+          &nbsp;
+          &nbsp;
+          <b>
+          Funding Application</b>
         </Link>
 
         <button
@@ -37,14 +41,14 @@ export default function Header() {
           className={`${isNavCollapsed ? "collapse" : ""} navbar-collapse`}
           id="navbarSupportedContent"
         >
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            
-              Contact us @&nbsp;
-              <a href="mailto:vishnu20480@iiitd.ac.in">vishnu20480@iiitd.ac.in</a>
-              &nbsp;or&nbsp;
-              <a href="mailto:rahul20534@iiitd.ac.in">rahul20534@iiitd.ac.in</a> 
-            
-          </ul>
+        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+          
+            Contact us @&nbsp;
+            <a href="mailto:vishnu20480@iiitd.ac.in">vishnu20480@iiitd.ac.in</a>
+            &nbsp;or&nbsp;
+            <a href="mailto:rahul20534@iiitd.ac.in">rahul20534@iiitd.ac.in</a> 
+          
+        </ul>
         </div>
       </div>
     </nav>
