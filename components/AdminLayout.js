@@ -52,7 +52,7 @@ function AdminLayout({ children }) {
                   aria-current="page"
                   onClick={() => signIn()}
                 >
-                  Login/Signup
+                  Login
                 </div>
               )}
             </div>

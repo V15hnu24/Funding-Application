@@ -11,11 +11,9 @@ function DetailCard({ name, imageUrl, description }) {
   return (
     <div className="card mb-5 pb-3">
       <div className=" card-header fs-1 fw-normal">
-        <b>{name} || IIIT Delhi</b>
+        <b>{name} </b>
       </div>
-
       <div className="p-1">
-
       <Image
         src={imageUrl}
         className="card-img-top"
@@ -23,7 +21,6 @@ function DetailCard({ name, imageUrl, description }) {
         width={500}
         height={500}
       />
-
       </div>
 
       <hr></hr>

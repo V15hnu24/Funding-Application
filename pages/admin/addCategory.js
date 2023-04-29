@@ -91,7 +91,7 @@ const AddCategoryPage = ({ session }) => {
               label="Category Name"
               name="name"
               type="text"
-              placeholder="Give for Alumni Legacy"
+              placeholder="Enter Name of the category"
             />
 
             <MyTextInput
