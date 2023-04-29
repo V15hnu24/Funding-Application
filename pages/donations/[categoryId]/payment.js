@@ -376,9 +376,9 @@ const MyForm = ({ name }) => {
               <option value="">Select your designation: </option>
               <option value="student">Student</option>
               <option value="alumni">Alumni</option>
-              <option value="parent">Parent</option>
-              <option value="professional">Industry Professional</option>
-              <option value="faculty">Faculty</option>
+              {/* <option value="parent">Parent</option> */}
+              {/* <option value="professional">Industry Professional</option> */}
+              {/* <option value="faculty">Faculty</option> */}
               <option value="employee">Employee</option>
               <option value="others">Others</option>
             </MySelectInput>
